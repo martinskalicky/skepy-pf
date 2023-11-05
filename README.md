@@ -74,7 +74,7 @@ A fork of techfreak's [Pathfinder-container](https://gitlab.com/techfreak/pathfi
    SMTP_ERROR=""
    ```
 
-    1. **Edit the *config/pathfinder/pathfinder.ini*** to your liking
+   1.**Edit the *config/pathfinder/pathfinder.ini*** to your liking
 
        Recommended options to change:
 
@@ -89,7 +89,7 @@ A fork of techfreak's [Pathfinder-container](https://gitlab.com/techfreak/pathfi
         * `[PATHFINDER.MAP.PRIVATE]`, `[PATHFINDER.MAP.PRIVATE]`, `[PATHFINDER.MAP.ALLIANCE]`
             * `LIFETIME` - expire time (in days) until a map type will be deleted (by cronjob)
               </br></br>
-    2. **Build & Run it**
+   2.**Build & Run it**
 
        ```shell
        docker network create web && docker-compose up -d --build
@@ -102,13 +102,13 @@ A fork of techfreak's [Pathfinder-container](https://gitlab.com/techfreak/pathfi
     * Once the page has reloaded, click the **"setup tables"**, and then **"fix columns/keys"**.
       </br></br>
 
-    4. **Go back to your console and insert the eve universe dump with this command:**
+   4.**Go back to your console and insert the eve universe dump with this command:**
 
        ```shell
        docker-compose exec pfdb /bin/sh -c "unzip -p eve_universe.sql.zip | mysql -u root -p\$MYSQL_ROOT_PASSWORD eve_universe";
  
        ```
-    5. **When everthing works, configure Traefik correctly for production**
+   5.**When everthing works, configure Traefik correctly for production**
 
         * Remove the staging CA server line [(#89)](https://github.com/goryn-clade/pathfinder-containers/blob/master/docker-compose.yml#L89) from `docker-compose.yml`.
         * Delete the `./letsencrypt/acme.json` configuration file so Let's Encrypt will get a new certificate.</br></br>
